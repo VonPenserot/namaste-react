@@ -27,6 +27,9 @@
   width: 200px;
   height: 300px;
   padding: 5px;
+}
+
+.res-card:hover {
   border: 1px solid black;
 }
 
@@ -35,5 +38,6 @@
 }
 
 .res-logo {
+  object-contain: fit;
   width: 100%;
 }
