@@ -16,6 +16,9 @@ import CompanyLogo from "./public/img/download.png";
  *  - Address
  *  - Contact
  */
+function RestaurantCard() {
+  return <div className="res-card">Meghana Foods</div>;
+}
 
 function Header() {
   return (
@@ -41,9 +44,7 @@ function Body() {
     <div className="body">
       <div className="searh">Search</div>
       <div className="res-container">
-        {/**
-         * Restaurant Card
-         */}
+        <RestaurantCard />
       </div>
     </div>
   );
@@ -57,6 +58,7 @@ function App() {
   return (
     <div>
       <Header />
+      <Body />
     </div>
   );
 }
