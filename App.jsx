@@ -36,6 +36,19 @@ function Header() {
   );
 }
 
+function Body() {
+  return (
+    <div className="body">
+      <div className="searh">Search</div>
+      <div className="res-container">
+        {/**
+         * Restaurant Card
+         */}
+      </div>
+    </div>
+  );
+}
+
 function AppLayout() {
   return <div className="app">// Header // Body // Footer</div>;
 }
