@@ -17,7 +17,19 @@ import CompanyLogo from "./public/img/download.png";
  *  - Contact
  */
 function RestaurantCard() {
-  return <div className="res-card">Meghana Foods</div>;
+  return (
+    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+      <img
+        className="res-logo"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2024/3/6/dab55604-2e16-46ad-8282-445331b01a0e_6494a846-89f4-48f4-bbfd-9550e5067db7_compressed"
+        alt="Merghana Foods"
+      />
+      <h3>Meghana Foods</h3>
+      <h4>Biryani, North Indian, Asia</h4>
+      <h4>4.4 stars</h4>
+      <h4>38 minutes</h4>
+    </div>
+  );
 }
 
 function Header() {
@@ -42,7 +54,7 @@ function Header() {
 function Body() {
   return (
     <div className="body">
-      <div className="searh">Search</div>
+      <div className="search">Search</div>
       <div className="res-container">
         <RestaurantCard />
       </div>
