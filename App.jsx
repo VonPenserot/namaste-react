@@ -20,7 +20,7 @@ function RestaurantCard({
   restaurantName,
   restaurantCuisine,
   restaurantStars,
-  restaurantAvgPrepTime,
+  restaurantDeliveryTime,
 }) {
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
@@ -32,7 +32,7 @@ function RestaurantCard({
       <h3>{restaurantName}</h3>
       <h4>{restaurantCuisine}</h4>
       <h4>{restaurantStars} stars</h4>
-      <h4>{restaurantAvgPrepTime} minutes</h4>
+      <h4>{restaurantDeliveryTime} minutes</h4>
     </div>
   );
 }
