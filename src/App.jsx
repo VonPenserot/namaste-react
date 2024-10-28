@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 
+import { RestaurantCard } from "./components/RestaurantCard";
 import CompanyLogo from "./public/img/download.png";
-import { RestaurantCard } from "./src/components/RestaurantCard";
 
 /**
  * Header
