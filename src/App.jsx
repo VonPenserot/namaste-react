@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 
+import { Body } from "./components/Body";
 import { Header } from "./components/Header";
-import { RestaurantCard } from "./components/RestaurantCard";
 
 /**
  * Header
@@ -17,31 +17,6 @@ import { RestaurantCard } from "./components/RestaurantCard";
  *  - Address
  *  - Contact
  */
-
-function Body() {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        <RestaurantCard
-          restaurantName="Meghana Foods"
-          restaurantCuisine="Biryani, North Indian, Asia"
-          restaurantStars={4.4}
-          restaurantAvgPrepTime={38}
-        />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-      </div>
-    </div>
-  );
-}
-
-function AppLayout() {
-  return <div className="app">// Header // Body // Footer</div>;
-}
 
 function App() {
   return (
