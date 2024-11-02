@@ -1,3 +1,5 @@
+import { RestaurantCard } from "../RestaurantCard";
+
 export function Body() {
   return (
     <div className="body">
