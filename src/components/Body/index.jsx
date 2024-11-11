@@ -33,6 +33,8 @@ export function Body() {
             const filteredList = listOfRestaurants.filter(
               (restaurant) => restaurant.data.avgRating > 4
             );
+
+            setListOfRestaurants(filteredList);
           }}
         >
           Top Rated Restaurants
