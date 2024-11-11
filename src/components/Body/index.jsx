@@ -30,9 +30,7 @@ export function Body() {
   }
 
   return listOfRestaurants.length === 0 ? (
-    <>
-      <Shimmer />
-    </>
+    <Shimmer />
   ) : (
     <div className="body">
       <div className="filter">
