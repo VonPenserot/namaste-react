@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { RestaurantCard } from "../RestaurantCard";
+import Shimmer from "../Shimmer";
 
 export function Body() {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -9,22 +10,26 @@ export function Body() {
   }, []);
 
   async function fetchRestaurants() {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    try {
+      const response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+      const json = (await response.json()) ?? [];
+      console.log(json);
+      setListOfRestaurants(
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } catch (err) {
+      console.error(err);
 
-    const json = await response.json();
-
-    setListOfRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+      setListOfRestaurants([]);
+    }
   }
 
-  if (!!listOfRestaurants.length) {
-    return <h1>Loading...</h1>;
-  }
-
-  return (
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
