@@ -1,21 +1,36 @@
+import { useEffect, useState } from "react";
 import { RestaurantCard } from "../RestaurantCard";
 
 export function Body() {
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchRestaurants();
+  }, []);
+
+  async function fetchRestaurants() {
+    const response = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await response.json();
+
+    setListOfRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  }
+
   return (
     <div className="body">
-      <div className="search">Search</div>
+      <div className="filter">
+        <button className="filter-btn">Top Rated Restaurants</button>
+      </div>
       <div className="res-container">
-        <RestaurantCard
-          restaurantName="Meghana Foods"
-          restaurantCuisine="Biryani, North Indian, Asia"
-          restaurantStars={4.4}
-          restaurantAvgPrepTime={38}
-        />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        {listOfRestaurants.map((restaurant) => {
+          return (
+            <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          );
+        })}
       </div>
     </div>
   );
