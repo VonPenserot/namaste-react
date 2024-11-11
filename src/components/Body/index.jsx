@@ -43,7 +43,7 @@ export function Body() {
         <button
           onClick={() => {
             const filteredRestaurantList = listOfRestaurants.filter((res) =>
-              res.data.name.includes(searchText)
+              res.data.name.toLowerCase().includes(searchText.toLowerCase())
             );
 
             setListOfRestaurants(filteredRestaurantList);
