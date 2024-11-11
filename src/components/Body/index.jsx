@@ -23,7 +23,16 @@ export function Body() {
   return (
     <div className="body">
       <div className="filter">
-        <button className="filter-btn">Top Rated Restaurants</button>
+        <button
+          className="filter-btn"
+          onClick={() => {
+            const filteredList = listOfRestaurants.filter(
+              (restaurant) => restaurant.data.avgRating > 4
+            );
+          }}
+        >
+          Top Rated Restaurants
+        </button>
       </div>
       <div className="res-container">
         {listOfRestaurants.map((restaurant) => {
